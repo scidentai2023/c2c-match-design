@@ -1,10 +1,28 @@
+'use client'
+
+import { useState } from 'react'
+import Sidebar from '@/components/layout/Sidebar'
+import TopBar from '@/components/layout/TopBar'
+import DashboardContent from '@/components/dashboard/DashboardContent'
+
 export default function Home() {
+  const [currentView, setCurrentView] = useState('overview')
+
   return (
-    <main className="flex items-center justify-center min-h-screen">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to C2C Match</h1>
-        <p className="text-lg text-gray-600">Your application is running successfully</p>
+    <div className="flex h-screen bg-[#0f1419]">
+      {/* Left Sidebar Navigation */}
+      <Sidebar currentView={currentView} onViewChange={setCurrentView} />
+
+      {/* Main Content Area */}
+      <div className="flex-1 flex flex-col overflow-hidden">
+        {/* Top Navigation Bar */}
+        <TopBar />
+
+        {/* Dashboard Content */}
+        <main className="flex-1 overflow-y-auto">
+          <DashboardContent view={currentView} />
+        </main>
       </div>
-    </main>
+    </div>
   )
 }

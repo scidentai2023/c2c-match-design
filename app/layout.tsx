@@ -6,8 +6,8 @@ const geistSans = Geist({ subsets: ['latin'] })
 const geistMono = Geist_Mono({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'C2C Match',
-  description: 'Match design application',
+  title: 'Plasma Etch Tool Monitor | Service Dashboard',
+  description: 'Professional service engineering dashboard for plasma etching tool health monitoring and diagnostics',
 }
 
 export const viewport: Viewport = {

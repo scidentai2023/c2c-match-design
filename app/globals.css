@@ -1,23 +1,76 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  --background: 0 0% 100%;
-  --foreground: 0 0% 3.6%;
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  
+  /* Professional dark theme for fab floor */
+  --color-background: #0f1419;
+  --color-foreground: #f1f5f9;
+  --color-surface: #1a202c;
+  --color-surface-hover: #2d3748;
+  --color-border: #2d3748;
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #a0aec0;
+  --color-text-muted: #718096;
+  
+  /* Status colors - critical for tool monitoring */
+  --color-status-green: #10b981;
+  --color-status-amber: #f59e0b;
+  --color-status-red: #ef4444;
+  
+  /* Accent colors */
+  --color-accent-primary: #3b82f6;
+  --color-accent-secondary: #8b5cf6;
+  --color-accent-tertiary: #06b6d4;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: 0 0% 3.6%;
-    --foreground: 0 0% 98%;
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-[#0f1419] text-[#f1f5f9] font-sans antialiased;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
   }
 }
 
-* {
-  @apply border-border;
-}
+@layer components {
+  .status-green {
+    @apply bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/20;
+  }
 
-body {
-  @apply bg-background text-foreground;
+  .status-amber {
+    @apply bg-[#f59e0b]/10 text-[#f59e0b] border border-[#f59e0b]/20;
+  }
+
+  .status-red {
+    @apply bg-[#ef4444]/10 text-[#ef4444] border border-[#ef4444]/20;
+  }
+
+  .surface {
+    @apply bg-[#1a202c] border border-[#2d3748];
+  }
+
+  .surface-hover {
+    @apply hover:bg-[#2d3748] transition-colors;
+  }
+
+  .dot-green {
+    @apply w-2 h-2 bg-[#10b981] rounded-full inline-block mr-2;
+  }
+
+  .dot-amber {
+    @apply w-2 h-2 bg-[#f59e0b] rounded-full inline-block mr-2;
+  }
+
+  .dot-red {
+    @apply w-2 h-2 bg-[#ef4444] rounded-full inline-block mr-2;
+  }
 }
