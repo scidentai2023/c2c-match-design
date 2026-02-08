@@ -1,39 +1,48 @@
 export default function TopBar() {
   return (
-    <header className="bg-[#1a202c] border-b border-[#2d3748] px-8 py-4">
-      <div className="flex items-center justify-between">
+    <header className="bg-[#111633] border-b border-[#3d4563]/30 px-8 py-5 backdrop-blur-xl">
+      <div className="flex items-center justify-between max-w-full">
         {/* Left: Service Engineer Info */}
         <div className="flex items-center gap-4">
+          <div className="w-12 h-12 bg-gradient-to-br from-[#0ea5e9] to-[#06b6d4] rounded-lg flex items-center justify-center text-white font-bold shadow-lg">
+            JC
+          </div>
           <div>
-            <p className="text-xs text-[#718096] uppercase tracking-wide">Service Engineer</p>
-            <p className="text-[#f1f5f9] font-semibold">James Chen</p>
-            <p className="text-xs text-[#718096]">Lam Research | On-duty</p>
+            <p className="text-xs text-[#94a3b8] uppercase tracking-wide font-semibold">Service Engineer</p>
+            <p className="text-[#f8fafc] font-bold text-base">James Chen</p>
+            <p className="text-xs text-[#94a3b8]">Lam Research • On Duty</p>
           </div>
         </div>
 
-        {/* Center: Location/Tool */}
+        {/* Center: Tool Status */}
+        <div className="flex items-center gap-4 px-6 py-3 bg-[#1a1f3a]/50 rounded-lg border border-[#3d4563]/30 backdrop-blur-sm">
+          <div className="w-10 h-10 bg-[#10b981]/20 rounded-lg flex items-center justify-center text-[#10b981] font-bold">
+            ✓
+          </div>
+          <div>
+            <p className="text-xs text-[#94a3b8]">Current Tool</p>
+            <p className="text-[#f8fafc] font-semibold">Tool-A-2024</p>
+          </div>
+          <span className="ml-2 px-3 py-1 bg-[#10b981]/10 text-[#10b981] text-xs font-semibold rounded-full border border-[#10b981]/20">
+            Active
+          </span>
+        </div>
+
+        {/* Right: Actions & Alerts */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#06b6d4]/10 rounded-lg flex items-center justify-center text-[#06b6d4]">
-            🏭
-          </div>
-          <div>
-            <p className="text-xs text-[#718096]">Current Tool</p>
-            <p className="text-[#f1f5f9] font-semibold">Tool-A-2024</p>
-          </div>
-        </div>
+          {/* Real-time Alert */}
+          <button className="relative p-3 hover:bg-[#1a1f3a] rounded-lg transition-colors">
+            <span className="text-xl">🔔</span>
+            <span className="absolute top-2 right-2 w-2 h-2 bg-[#ef4444] rounded-full animate-pulse"></span>
+          </button>
 
-        {/* Right: Notifications & Actions */}
-        <div className="flex items-center gap-4">
-          {/* Alerts */}
-          <div className="relative">
-            <button className="relative p-2 hover:bg-[#2d3748] rounded-lg transition-colors">
-              <span className="text-xl">🔔</span>
-              <span className="absolute top-1 right-1 w-2 h-2 bg-[#ef4444] rounded-full"></span>
-            </button>
-          </div>
+          {/* Settings */}
+          <button className="p-3 hover:bg-[#1a1f3a] rounded-lg transition-colors text-[#cbd5e1]">
+            ⚙️
+          </button>
 
-          {/* Profile */}
-          <button className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#3b82f6] to-[#8b5cf6] flex items-center justify-center text-white font-semibold hover:opacity-90 transition-opacity">
+          {/* Profile Avatar */}
+          <button className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0ea5e9] via-[#06b6d4] to-[#8b5cf6] flex items-center justify-center text-white font-bold hover:shadow-lg hover:shadow-[#0ea5e9]/20 transition-all">
             JC
           </button>
         </div>

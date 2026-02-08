@@ -4,30 +4,32 @@
   --font-sans: 'Geist', 'Geist Fallback';
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   
-  /* Professional dark theme for fab floor */
-  --color-background: #0f1419;
-  --color-foreground: #f1f5f9;
-  --color-surface: #1a202c;
-  --color-surface-hover: #2d3748;
-  --color-border: #2d3748;
-  --color-text-primary: #f1f5f9;
-  --color-text-secondary: #a0aec0;
-  --color-text-muted: #718096;
+  /* Premium dark background - matches Vercel observability */
+  --color-background: #0a0e27;
+  --color-surface: #111633;
+  --color-surface-elevated: #1a1f3a;
+  --color-surface-hover: #242d52;
   
-  /* Status colors - critical for tool monitoring */
-  --color-status-green: #10b981;
-  --color-status-amber: #f59e0b;
-  --color-status-red: #ef4444;
+  /* Professional text hierarchy */
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
   
-  /* Accent colors */
-  --color-accent-primary: #3b82f6;
-  --color-accent-secondary: #8b5cf6;
-  --color-accent-tertiary: #06b6d4;
+  /* Accent - modern cyan/blue */
+  --color-accent-primary: #0ea5e9;
+  --color-accent-secondary: #06b6d4;
+  --color-accent-tertiary: #8b5cf6;
+  
+  /* Status colors - semantic */
+  --color-status-success: #10b981;
+  --color-status-warning: #f59e0b;
+  --color-status-error: #ef4444;
+  --color-status-info: #3b82f6;
 }
 
 @layer base {
   * {
-    border-color: var(--color-border);
+    border-color: rgba(55, 65, 81, 0.3);
   }
 
   html {
@@ -35,42 +37,51 @@
   }
 
   body {
-    @apply bg-[#0f1419] text-[#f1f5f9] font-sans antialiased;
-    background-color: var(--color-background);
+    @apply bg-[#0a0e27] text-[#f8fafc] font-sans antialiased;
+    background: linear-gradient(135deg, #0a0e27 0%, #0f1333 100%);
     color: var(--color-text-primary);
   }
 }
 
 @layer components {
-  .status-green {
-    @apply bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/20;
+  /* Status badge components */
+  .badge-success {
+    @apply bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/20 rounded-full;
   }
 
-  .status-amber {
-    @apply bg-[#f59e0b]/10 text-[#f59e0b] border border-[#f59e0b]/20;
+  .badge-warning {
+    @apply bg-[#f59e0b]/10 text-[#f59e0b] border border-[#f59e0b]/20 rounded-full;
   }
 
-  .status-red {
-    @apply bg-[#ef4444]/10 text-[#ef4444] border border-[#ef4444]/20;
+  .badge-error {
+    @apply bg-[#ef4444]/10 text-[#ef4444] border border-[#ef4444]/20 rounded-full;
   }
 
-  .surface {
-    @apply bg-[#1a202c] border border-[#2d3748];
+  /* Surface cards */
+  .card-surface {
+    @apply bg-[#111633] border border-[#3d4563]/30 rounded-xl backdrop-blur-sm;
   }
 
-  .surface-hover {
-    @apply hover:bg-[#2d3748] transition-colors;
+  .card-hover {
+    @apply hover:bg-[#1a1f3a] transition-all duration-200;
   }
 
-  .dot-green {
-    @apply w-2 h-2 bg-[#10b981] rounded-full inline-block mr-2;
+  /* Glass morphism effect */
+  .glass-effect {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
   }
 
-  .dot-amber {
-    @apply w-2 h-2 bg-[#f59e0b] rounded-full inline-block mr-2;
+  /* Status indicator dots */
+  .dot-indicator {
+    @apply w-2 h-2 rounded-full inline-block;
   }
 
-  .dot-red {
-    @apply w-2 h-2 bg-[#ef4444] rounded-full inline-block mr-2;
+  /* Modern button styles */
+  .btn-primary {
+    @apply bg-[#0ea5e9] hover:bg-[#0284c7] text-white font-medium px-4 py-2 rounded-lg transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-[#1a1f3a] hover:bg-[#242d52] text-[#f8fafc] font-medium px-4 py-2 rounded-lg transition-colors border border-[#3d4563]/30;
   }
 }

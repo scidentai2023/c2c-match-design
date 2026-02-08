@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import Sidebar from '@/components/layout/Sidebar'
-import TopBar from '@/components/layout/TopBar'
-import DashboardContent from '@/components/dashboard/DashboardContent'
+import Sidebar from '../components/layout/Sidebar'
+import TopBar from '../components/layout/TopBar'
+import DashboardContent from '../components/dashboard/DashboardContent'
 
 export default function Home() {
   const [currentView, setCurrentView] = useState('overview')

@@ -1,54 +1,59 @@
 export default function Sidebar({ currentView, onViewChange }) {
   const menuItems = [
-    { id: 'overview', label: 'Tool Health Overview', icon: '📊' },
-    { id: 'depth-repeatability', label: 'Etch Depth Repeatability', icon: '📈' },
-    { id: 'wafer-consistency', label: 'Wafer-to-Wafer Consistency', icon: '📋' },
-    { id: 'uniformity', label: 'Across-Wafer Uniformity', icon: '🔄' },
-    { id: 'chamber-matching', label: 'Chamber-to-Chamber Matching', icon: '⚙️' },
+    { id: 'overview', label: 'Health Overview', icon: '📊' },
+    { id: 'depth-repeatability', label: 'Depth Repeatability', icon: '📈' },
+    { id: 'wafer-consistency', label: 'Wafer Consistency', icon: '📋' },
+    { id: 'uniformity', label: 'Wafer Uniformity', icon: '🔄' },
+    { id: 'chamber-matching', label: 'Chamber Matching', icon: '⚙️' },
     { id: 'profile-stability', label: 'Profile Stability', icon: '📐' },
     { id: 'cleanliness', label: 'Bottom Cleanliness', icon: '🧹' },
     { id: 'etch-rate', label: 'Etch Rate Stability', icon: '⚡' },
     { id: 'pm-recovery', label: 'Post-PM Recovery', icon: '🔧' },
-    { id: 'issue-triage', label: 'Issue Triage & Root Cause', icon: '🔍' },
+    { id: 'issue-triage', label: 'Issue Triage', icon: '🔍' },
     { id: 'jobs', label: 'Jobs & Activities', icon: '✓' },
-    { id: 'reports', label: 'Reports & Sign-Off', icon: '📄' },
+    { id: 'reports', label: 'Reports', icon: '📄' },
     { id: 'facility', label: 'Facility Correlation', icon: '🏭' },
   ]
 
   return (
-    <aside className="w-64 bg-[#1a202c] border-r border-[#2d3748] overflow-y-auto flex flex-col">
+    <aside className="w-72 bg-[#111633] border-r border-[#3d4563]/30 overflow-y-auto flex flex-col backdrop-blur-xl">
       {/* Logo/Header */}
-      <div className="p-6 border-b border-[#2d3748]">
-        <div className="flex items-center gap-2 mb-1">
-          <div className="w-8 h-8 bg-gradient-to-br from-[#3b82f6] to-[#06b6d4] rounded-lg flex items-center justify-center text-white font-bold text-sm">
+      <div className="p-6 border-b border-[#3d4563]/30 bg-gradient-to-b from-[#1a1f3a] to-[#111633]">
+        <div className="flex items-center gap-3 mb-2">
+          <div className="w-10 h-10 bg-gradient-to-br from-[#0ea5e9] via-[#06b6d4] to-[#8b5cf6] rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
             ET
           </div>
-          <span className="text-[#f1f5f9] font-semibold text-lg">EtchTools</span>
+          <div>
+            <h1 className="text-[#f8fafc] font-bold text-base leading-tight">EtchTools</h1>
+            <p className="text-xs text-[#94a3b8]">Pro Monitor</p>
+          </div>
         </div>
-        <p className="text-xs text-[#718096]">Service Monitor</p>
       </div>
 
       {/* Navigation Menu */}
-      <nav className="flex-1 px-4 py-4 space-y-1">
+      <nav className="flex-1 px-3 py-5 space-y-2">
         {menuItems.map((item) => (
           <button
             key={item.id}
             onClick={() => onViewChange(item.id)}
-            className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all flex items-center gap-3 ${
+            className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-3 ${
               currentView === item.id
-                ? 'bg-[#3b82f6] text-white'
-                : 'text-[#a0aec0] hover:bg-[#2d3748] hover:text-[#f1f5f9]'
+                ? 'bg-gradient-to-r from-[#0ea5e9]/20 to-[#06b6d4]/20 text-[#0ea5e9] border border-[#0ea5e9]/30 shadow-md'
+                : 'text-[#cbd5e1] hover:bg-[#1a1f3a] hover:text-[#f8fafc] border border-transparent'
             }`}
           >
-            <span className="text-base">{item.icon}</span>
+            <span className="text-base flex-shrink-0">{item.icon}</span>
             <span className="truncate">{item.label}</span>
           </button>
         ))}
       </nav>
 
       {/* Footer */}
-      <div className="p-4 border-t border-[#2d3748] bg-[#0f1419]">
-        <p className="text-xs text-[#718096]">v2.1 Beta</p>
+      <div className="p-4 border-t border-[#3d4563]/30 bg-gradient-to-t from-[#0a0e27] to-[#111633]">
+        <div className="flex items-center justify-between">
+          <p className="text-xs text-[#94a3b8] font-medium">v2.1 Pro</p>
+          <div className="w-2 h-2 bg-[#10b981] rounded-full animate-pulse"></div>
+        </div>
       </div>
     </aside>
   )
