@@ -9,7 +9,7 @@ export default function Home() {
   const [currentView, setCurrentView] = useState('overview')
 
   return (
-    <div className="flex h-screen bg-[#0f1419]">
+    <div className="flex h-screen bg-[#f8fafc]">
       {/* Left Sidebar Navigation */}
       <Sidebar currentView={currentView} onViewChange={setCurrentView} />
 

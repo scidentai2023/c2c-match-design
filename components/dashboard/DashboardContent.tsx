@@ -37,22 +37,22 @@ export default function DashboardContent({ view }) {
       case 'jobs':
         return (
           <div className="p-8">
-            <h1 className="text-3xl font-bold text-[#f8fafc] mb-2">Jobs & Activities</h1>
-            <p className="text-[#cbd5e1] text-lg">Jobs and activities management coming soon</p>
+            <h1 className="text-3xl font-bold text-[#0f172a] mb-2">Jobs & Activities</h1>
+            <p className="text-[#475569] text-lg">Jobs and activities management coming soon</p>
           </div>
         )
       case 'reports':
         return (
           <div className="p-8">
-            <h1 className="text-3xl font-bold text-[#f8fafc] mb-2">Reports & Sign-Off</h1>
-            <p className="text-[#cbd5e1] text-lg">Reports and sign-off system coming soon</p>
+            <h1 className="text-3xl font-bold text-[#0f172a] mb-2">Reports & Sign-Off</h1>
+            <p className="text-[#475569] text-lg">Reports and sign-off system coming soon</p>
           </div>
         )
       case 'facility':
         return (
           <div className="p-8">
-            <h1 className="text-3xl font-bold text-[#f8fafc] mb-2">Facility Correlation</h1>
-            <p className="text-[#cbd5e1] text-lg">Facility correlation analysis coming soon</p>
+            <h1 className="text-3xl font-bold text-[#0f172a] mb-2">Facility Correlation</h1>
+            <p className="text-[#475569] text-lg">Facility correlation analysis coming soon</p>
           </div>
         )
       default:
@@ -60,5 +60,5 @@ export default function DashboardContent({ view }) {
     }
   }
 
-  return <div className="bg-[#0a0e27]">{renderView()}</div>
+  return <div className="bg-[#f8fafc]">{renderView()}</div>
 }

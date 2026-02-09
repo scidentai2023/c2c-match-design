@@ -28,23 +28,23 @@ export default function ToolHealthOverview() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0a0e27] via-[#0f1333] to-[#0a0e27] p-8">
+    <div className="min-h-screen bg-gradient-to-br from-[#f8fafc] via-[#f1f5f9] to-[#f8fafc] p-8">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-[#f8fafc] mb-2">Tool Health Overview</h1>
-        <p className="text-[#cbd5e1]">Real-time monitoring across all active chambers</p>
+        <h1 className="text-4xl font-bold text-[#0f172a] mb-2">Tool Health Overview</h1>
+        <p className="text-[#475569]">Real-time monitoring across all active chambers</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
         {/* System Health Score */}
         <div className="lg:col-span-1 card-surface p-6 rounded-xl">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-lg font-semibold text-[#f8fafc]">System Health</h2>
+            <h2 className="text-lg font-semibold text-[#0f172a]">System Health</h2>
             <span className="text-2xl">📊</span>
           </div>
           <div className="relative w-40 h-40 mx-auto mb-6">
             <svg className="w-full h-full transform -rotate-90" viewBox="0 0 120 120">
-              <circle cx="60" cy="60" r="55" fill="none" stroke="#3d4563" strokeWidth="8" />
+              <circle cx="60" cy="60" r="55" fill="none" stroke="#e2e8f0" strokeWidth="8" />
               <circle
                 cx="60"
                 cy="60"
@@ -66,13 +66,13 @@ export default function ToolHealthOverview() {
             </svg>
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
-                <div className="text-4xl font-bold text-[#f8fafc]">78%</div>
-                <div className="text-xs text-[#94a3b8]">Overall</div>
+                <div className="text-4xl font-bold text-[#0f172a]">78%</div>
+                <div className="text-xs text-[#64748b]">Overall</div>
               </div>
             </div>
           </div>
-          <div className="bg-[#1a1f3a]/50 rounded-lg p-4 text-center">
-            <span className="inline-block px-3 py-1 bg-[#f59e0b]/20 text-[#f59e0b] rounded-full text-sm font-medium border border-[#f59e0b]/30">
+          <div className="bg-[#f1f5f9] rounded-lg p-4 text-center">
+            <span className="inline-block px-3 py-1 bg-[#f59e0b]/20 text-[#d97706] rounded-full text-sm font-medium border border-[#f59e0b]/30">
               Requires Attention
             </span>
           </div>
@@ -89,8 +89,8 @@ export default function ToolHealthOverview() {
             <div key={idx} className="card-surface p-6 rounded-xl hover:scale-105 transition-transform">
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <p className="text-xs text-[#94a3b8] font-semibold uppercase tracking-wide">{stat.label}</p>
-                  <p className="text-2xl font-bold text-[#f8fafc] mt-2">{stat.value}</p>
+                  <p className="text-xs text-[#64748b] font-semibold uppercase tracking-wide">{stat.label}</p>
+                  <p className="text-2xl font-bold text-[#0f172a] mt-2">{stat.value}</p>
                 </div>
                 <span className="text-3xl opacity-60">{stat.icon}</span>
               </div>
@@ -102,14 +102,14 @@ export default function ToolHealthOverview() {
 
       {/* Chamber Health Grid */}
       <div className="mb-8">
-        <h2 className="text-xl font-bold text-[#f8fafc] mb-4">Chamber Status</h2>
+        <h2 className="text-xl font-bold text-[#0f172a] mb-4">Chamber Status</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {toolHealth.map((chamber, idx) => (
             <div key={idx} className="card-surface p-5 rounded-xl card-hover">
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <p className="text-sm font-semibold text-[#cbd5e1]">{chamber.name}</p>
-                  <p className="text-xs text-[#94a3b8] mt-1">{chamber.lastPM}</p>
+                  <p className="text-sm font-semibold text-[#475569]">{chamber.name}</p>
+                  <p className="text-xs text-[#64748b] mt-1">{chamber.lastPM}</p>
                 </div>
                 <span className="text-2xl">📈</span>
               </div>
@@ -117,10 +117,10 @@ export default function ToolHealthOverview() {
               {/* Health Bar */}
               <div className="mb-4">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs text-[#94a3b8]">Health</span>
-                  <span className="text-sm font-bold text-[#f8fafc]">{chamber.health}%</span>
+                  <span className="text-xs text-[#64748b]">Health</span>
+                  <span className="text-sm font-bold text-[#0f172a]">{chamber.health}%</span>
                 </div>
-                <div className="w-full h-2 bg-[#1a1f3a] rounded-full overflow-hidden">
+                <div className="w-full h-2 bg-[#e2e8f0] rounded-full overflow-hidden">
                   <div
                     className={`h-full bg-gradient-to-r ${getHealthColor(chamber.health)} transition-all duration-500`}
                     style={{ width: `${chamber.health}%` }}
@@ -130,10 +130,10 @@ export default function ToolHealthOverview() {
 
               {/* Status Badge */}
               <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold capitalize border ${
-                chamber.status === 'optimal' ? 'bg-[#10b981]/10 text-[#10b981] border-[#10b981]/20' :
-                chamber.status === 'good' ? 'bg-[#f59e0b]/10 text-[#f59e0b] border-[#f59e0b]/20' :
-                chamber.status === 'fair' ? 'bg-[#f97316]/10 text-[#f97316] border-[#f97316]/20' :
-                'bg-[#ef4444]/10 text-[#ef4444] border-[#ef4444]/20'
+                chamber.status === 'optimal' ? 'bg-[#10b981]/10 text-[#059669] border-[#10b981]/20' :
+                chamber.status === 'good' ? 'bg-[#f59e0b]/10 text-[#d97706] border-[#f59e0b]/20' :
+                chamber.status === 'fair' ? 'bg-[#f97316]/10 text-[#c2410c] border-[#f97316]/20' :
+                'bg-[#ef4444]/10 text-[#dc2626] border-[#ef4444]/20'
               }`}>
                 {chamber.status}
               </span>
@@ -144,7 +144,7 @@ export default function ToolHealthOverview() {
 
       {/* Recent Issues */}
       <div>
-        <h2 className="text-xl font-bold text-[#f8fafc] mb-4">Recent Issues & Alerts</h2>
+        <h2 className="text-xl font-bold text-[#0f172a] mb-4">Recent Issues & Alerts</h2>
         <div className="space-y-3">
           {issues.map((issue) => (
             <div key={issue.id} className="card-surface p-5 rounded-xl card-hover flex items-start justify-between">
@@ -157,8 +157,8 @@ export default function ToolHealthOverview() {
                   {issue.severity === 'high' ? '🔴' : issue.severity === 'medium' ? '🟡' : '🔵'}
                 </div>
                 <div>
-                  <p className="text-[#f8fafc] font-semibold">{issue.title}</p>
-                  <p className="text-xs text-[#94a3b8] mt-1">{issue.chamber} • {issue.time}</p>
+                  <p className="text-[#0f172a] font-semibold">{issue.title}</p>
+                  <p className="text-xs text-[#64748b] mt-1">{issue.chamber} • {issue.time}</p>
                 </div>
               </div>
               <span className={`px-3 py-1 rounded-full text-xs font-semibold border capitalize ${getSeverityColor(issue.severity)}`}>
