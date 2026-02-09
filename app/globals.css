@@ -1,0 +1,87 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  
+  /* Light professional background */
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #f1f5f9;
+  --color-surface-hover: #e2e8f0;
+  
+  /* Professional text hierarchy */
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+  
+  /* Accent - modern cyan/blue */
+  --color-accent-primary: #0ea5e9;
+  --color-accent-secondary: #06b6d4;
+  --color-accent-tertiary: #7c3aed;
+  
+  /* Status colors - semantic */
+  --color-status-success: #10b981;
+  --color-status-warning: #f59e0b;
+  --color-status-error: #ef4444;
+  --color-status-info: #3b82f6;
+}
+
+@layer base {
+  * {
+    border-color: rgba(15, 23, 42, 0.1);
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-[#f8fafc] text-[#0f172a] font-sans antialiased;
+    background: linear-gradient(135deg, #f8fafc 0%, #f0f4f8 100%);
+    color: var(--color-text-primary);
+  }
+}
+
+@layer components {
+  /* Status badge components */
+  .badge-success {
+    @apply bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/20 rounded-full;
+  }
+
+  .badge-warning {
+    @apply bg-[#f59e0b]/10 text-[#f59e0b] border border-[#f59e0b]/20 rounded-full;
+  }
+
+  .badge-error {
+    @apply bg-[#ef4444]/10 text-[#ef4444] border border-[#ef4444]/20 rounded-full;
+  }
+
+  /* Surface cards */
+  .card-surface {
+    @apply bg-white border border-[#e2e8f0] rounded-xl shadow-sm;
+  }
+
+  .card-hover {
+    @apply hover:shadow-md hover:border-[#cbd5e1] transition-all duration-200;
+  }
+
+  /* Glass morphism effect */
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-md border border-[#e2e8f0];
+  }
+
+  /* Status indicator dots */
+  .dot-indicator {
+    @apply w-2 h-2 rounded-full inline-block;
+  }
+
+  /* Modern button styles */
+  .btn-primary {
+    @apply bg-[#0ea5e9] hover:bg-[#0284c7] text-white font-medium px-4 py-2 rounded-lg transition-colors shadow-sm;
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-[#f1f5f9] text-[#0f172a] font-medium px-4 py-2 rounded-lg transition-colors border border-[#e2e8f0];
+  }
+}
