@@ -1,6 +1,8 @@
+import './globals.css';
+
 export const metadata = {
-  title: 'C2C Match Design',
-  description: 'A community matching platform',
+  title: 'Dashboard',
+  description: 'Professional dashboard with sidebar and header navigation',
 };
 
 export default function RootLayout({
@@ -10,7 +12,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="bg-background text-foreground">
+        {children}
+      </body>
     </html>
   );
 }
