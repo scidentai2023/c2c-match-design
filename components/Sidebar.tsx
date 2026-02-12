@@ -26,7 +26,7 @@ export default function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean; setIsO
 
       {/* Sidebar */}
       <aside
-        className={`fixed left-0 top-16 z-30 h-[calc(100vh-64px)] w-64 bg-card border-r border-border transition-transform duration-300 overflow-y-auto md:translate-x-0 ${
+        className={`fixed left-0 top-16 z-30 h-[calc(100vh-64px)] w-64 bg-white border-r border-slate-200 transition-transform duration-300 overflow-y-auto md:translate-x-0 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -35,10 +35,10 @@ export default function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean; setIsO
             <div key={item.label}>
               <button
                 onClick={() => setExpandedMenu(expandedMenu === item.label ? null : item.label)}
-                className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium text-card-foreground hover:bg-background transition-colors group"
+                className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <item.icon className="w-5 h-5 text-accent group-hover:text-primary transition-colors" />
+                  <item.icon className="w-5 h-5 text-slate-500 group-hover:text-blue-500 transition-colors" />
                   <span>{item.label}</span>
                 </div>
               </button>
@@ -46,10 +46,10 @@ export default function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean; setIsO
           ))}
 
           {/* Divider */}
-          <div className="my-6 border-t border-border" />
+          <div className="my-6 border-t border-slate-200" />
 
           {/* Logout */}
-          <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-destructive hover:bg-background transition-colors">
+          <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-red-600 hover:bg-red-50 transition-colors">
             <LogOut className="w-5 h-5" />
             <span>Logout</span>
           </button>
