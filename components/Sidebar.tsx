@@ -26,9 +26,11 @@ export default function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean; setIsO
 
       {/* Sidebar */}
       <aside
-        className={`fixed left-0 top-16 z-30 h-[calc(100vh-64px)] w-64 bg-white border-r border-slate-200 transition-transform duration-300 overflow-y-auto md:translate-x-0 ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
+        className="fixed left-0 top-16 z-30 h-[calc(100vh-64px)] w-64 bg-white border-r border-slate-200 transition-transform duration-300 overflow-y-auto md:translate-x-0"
+        style={{
+          transform: isOpen ? 'translateX(0)' : 'translateX(-100%)',
+        }}
+        suppressHydrationWarning
       >
         <nav className="space-y-2 p-4">
           {menuItems.map((item) => (
